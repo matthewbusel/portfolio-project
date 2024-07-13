@@ -1,0 +1,361 @@
+/* General styles */
+* {
+    box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+    padding-top: 60px; 
+}
+
+/* Common Section Styles */
+.section {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.about-me {
+    flex: 0 1 70%;
+    padding-right: 20px;
+    max-width: 900px; /* Sets a max-width for the about-me content */
+}
+
+.image-div {
+    flex: 0 1 30%;
+    max-width: 300px;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container .hover-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.5s ease;
+}
+
+.image-container::before {
+    content: "";
+    background: url('./images/whalesync-background.jpeg') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-container:hover .hover-image {
+    opacity: 0;
+}
+
+.image-container:hover::before {
+    opacity: 1;
+}
+
+/* Skills Section */
+.skills-icons {
+    display: flex;
+    justify-content: flex-start; /* Align logos to the left */
+    gap: 20px; /* Space between logos */
+}
+
+.logo-container {
+    display: flex;
+    gap: 20px; /* Space between logo items */
+}
+
+.logo-item {
+    width: 50px;
+    height: 50px;
+}
+
+.company-logo {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.company-logo:hover {
+    transform: scale(1.2);
+}
+
+/* Contact Section */
+#contact {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+#contact h2 {
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+#contact a {
+    color: #007BFF; /* Use your preferred link color */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px; /* Padding for the badge-like appearance */
+    border: 1px solid #007BFF; /* Border color matching the link color */
+    border-radius: 20px; /* Rounded corners for the badge */
+    transition: transform 0.3s ease, background-color 0.3s ease, margin-right 0.3s ease; /* Smooth transition for transform, background-color, and margin-right */
+}
+
+#contact a:hover {
+    text-decoration: none;
+    transform: scale(1.05); /* Slightly scale up on hover */
+    background-color: #e6f2ff; /* Background color change on hover */
+    margin-right: 5px; /* Increase right margin on hover to push surrounding content */
+}
+
+.inline-icon {
+    width: 16px; /* Adjust size as needed */
+    height: 16px; /* Adjust size as needed */
+    margin-right: 8px;
+    vertical-align: middle; /* Ensures the icon aligns nicely with text */
+    display: inline-block; /* Align the image properly with text */
+    line-height: 0; /* Remove extra space around the image */
+}
+
+/* Projects Section */
+.projects-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.project-card {
+    width: 350px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    cursor: pointer; /* Make the cards look clickable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Move up slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.project-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Space between the icons */
+    margin-bottom: 10px; /* Space between the icons and the project name */
+}
+
+.tech-icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+}
+
+/* Projects Preview */
+.projects-preview {
+    position: relative; /* Ensure positioning context for absolute elements */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    opacity: 0;
+    max-height: 0; /* Collapses the height */
+    overflow: hidden; /* Ensures content does not overflow */
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+    display: none; /* Initially hidden */
+}
+
+.projects-preview.show {
+    opacity: 1;
+    max-height: 1000px; /* Ensure this value is large enough to fit the content */
+    display: block; /* Needs to be set before transition starts */
+}
+
+.projects-preview .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #007BFF; /* Background color for the badge */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.projects-preview .project-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px; /* Space between the icons */
+}
+
+.tech-icon {
+    width: 24px; /* Fixed size for the icons */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.projects-preview h3 {
+    margin-bottom: 10px;
+}
+
+.projects-preview p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.projects-preview img {
+    width: 80%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #ddd; /* Add a border around the image */
+    border-radius: 10px; /* Add rounded corners to the image */
+    margin: 20px auto; /* Center the image with some margin */
+    display: block; /* Center the image within its container */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar h1 {
+        margin-bottom: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .project-card {
+        flex: 1 1 100%;
+    }
+
+    .skills-icons {
+        justify-content: center;
+    }
+
+    .logo-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar h1 {
+        font-size: 20px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+    }
+
+    .about-me, .image-div {
+        max-width: 100%;
+    }
+
+    .project-card {
+        padding: 10px;
+    }
+
+    .projects-preview img {
+        width: 90%;
+    }
+
+    #contact p {
+        font-size: 14px;
+    }
+
+    .inline-icon {
+        width: 14px;
+        height: 14px;
+    }
+}
